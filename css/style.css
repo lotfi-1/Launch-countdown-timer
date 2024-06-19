@@ -1,0 +1,177 @@
+*{
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+body{
+    font-family: 'Space Grotesk', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+a{
+    text-decoration: none
+}
+ul{
+    list-style: none
+}
+:root{
+    --darkBleu : hsl(235, 16%, 14%);
+    --softRed: hsl(345, 95%, 68%);
+    --grayishBlue: hsl(237, 18%, 59%);
+}
+.container{
+    width: 100%;
+    height: 100%;
+    position: relative;
+    background-image: url("../images/bg-stars.svg");
+    background-color: var(--darkBleu);
+}
+.container .clock{
+    position: absolute;
+    width: 90%;
+    height: 200px;
+    left: 5%;
+    top: 15%;
+    background-color:  var(--darkBleu);
+}
+
+.container .clock  div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.container .clock > div:first-child{
+    width: 100%;
+    height: 50px;
+    color: white;
+    font-size: 20px;
+    letter-spacing: 2px;
+}
+.container .clock > div:last-child{
+    flex: 1;
+    height: 150px;
+}
+.container .clock > div:last-child > div{
+    width: 25%;
+    height: 150px;
+    flex-direction: column;
+    gap: 10px 0;
+}
+.container .clock > div:last-child > div > div:not(.ligne){
+    width: 70px;
+    height: 70px;
+    opacity: 0.8;
+    background-color: hsl(236, 21%, 26%);
+    box-shadow: 0 4px 3px 0 black;
+    border-radius: 5px;
+    position: relative;
+}
+.container .clock > div:last-child > div > div > span{
+    font-size: 35px;
+    color: var(--softRed);
+}
+.container .clock > div:last-child > div > div .ligne{
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 2px;
+    top: calc(50% - 1px);
+    background-color: var(--darkBleu);
+    opacity: 0.6;
+}
+.container .clock > div:last-child > div > div::after,
+.container .clock > div:last-child > div > div::before{
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    background-color: var(--darkBleu);
+    border-radius: 50%;
+}
+.container .clock > div:last-child > div > div::after{
+    right: -5px;
+}
+.container .clock > div:last-child > div > div::before{
+    left: -5px;
+}
+.container .clock > div:last-child > div > span{
+    color: var(--grayishBlue);
+    font-size: 12px;
+    letter-spacing: 2px;
+}
+
+.container .footer{
+    position: absolute;
+    bottom: 0;
+    background-image: url("../images/pattern-hills.svg");
+    background-size: 150% 150px;
+    width: 100%;
+    height: 150px;
+    z-index: 2;
+    
+}
+
+.container .footer ul{
+    display: flex;
+    width: 130px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    gap: 0 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.container .footer ul li{
+    width: 30px;
+    height: 30px;
+    position: relative;
+
+}
+.container .footer ul a{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+}
+.container .footer ul li:first-child a::before{
+    content: "\f082";
+    color: #3b5998;
+    border-bottom-color: #3b5998 ;
+}
+.container .footer ul li:nth-child(2) a::before{
+    content: "\f16d";
+    color:#dc2743;
+    border-bottom-color: #dc2743;
+}
+.container .footer ul li:last-child a::before{
+    content: "\f099";
+    color:#1DA1F2;
+    border-bottom-color:#1DA1F2;
+}
+.container .footer ul li a i {
+    font-size: 30px;
+    color: var(--grayishBlue);
+}
+
+.container .footer ul li a::before{
+    font-family: "FontAwesome";
+    font-size: 30px;
+    height: 0;
+    overflow: hidden;
+    border-bottom-style: solid;
+    border-bottom-width: 2px;
+    position: absolute;
+    top: -2.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.4s;
+}
+
+.container .footer ul li a:hover::before{
+    height: 34px;
+}
